@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  url-shortener:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: url-shortener:latest
+    container_name: url-shortener
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_FILE=/app/data/urls.db
+      - BASE_URL=http://localhost:3000
+    volumes:
+      # Mount data directory for SQLite persistence
+      - ./data:/app/data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:3000/api/urls', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s

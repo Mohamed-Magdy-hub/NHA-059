@@ -1,0 +1,49 @@
+# Dependencies (will be installed in Docker)
+node_modules/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Database files (will be volume-mounted)
+data/
+*.db
+*.sqlite
+
+# Git files
+.git/
+.gitignore
+
+# Documentation
+README.md
+*.md
+!package.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Testing
+test/
+*.test.js
+coverage/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+
+# Docker files
+Dockerfile*
+docker-compose*.yml
+.dockerignore
