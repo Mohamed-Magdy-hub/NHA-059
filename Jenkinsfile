@@ -56,7 +56,7 @@ pipeline {
                 }
             }
         }
-                 ⬇️⬇️⬇️  STAGE 1: Install & Test (RUNS INSIDE NODE CONTAINER)  ⬇️⬇️⬇️
+               //STAGE 1: Install & Test (RUNS INSIDE NODE CONTAINER)  
 
         stage('Install & Test') {
             // Use Node.js Docker image for this stage instead of installing Node.js on the Jenkins host to maintain a clean environment consistency of node versions
