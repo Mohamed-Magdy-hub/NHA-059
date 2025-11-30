@@ -74,7 +74,7 @@ pipeline {
                     // Install dependencies
                     sh '''
                         echo "Installing dependencies..."
-                        npm ci
+                        npm install node
                     '''
                     
                     // Run tests if they exist
